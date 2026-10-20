@@ -16,12 +16,11 @@ O projeto é feito com HTML, CSS e JavaScript puros, sem frameworks, sem depend�
 
 ## Como usar
 
-1. Acesse o link: 
+1. Acesse o link: https://gwentscore.netlify.app
 2. Digite a força total das cartas em cada linha do seu lado do tabuleiro.
 3. Acompanhe o total de cada jogador nos escudos.
 4. Ao fim da partida, toque em **Zerar partida** para começar outra.
 
-> Não precisa de servidor nem de instalação. Para consultar online, é só publicar a pasta em qualquer hospedagem estática (Netlify, GitHub Pages, etc.).
 
 ## Estrutura de arquivos
 
