@@ -377,23 +377,113 @@
                 padding-top: 5%;
             }
 
-            .menu { display: none; }
+            .menu { display: none; } /* Oculta menu no mobile para focar na mesa */
 
             .logo { font-size: 1.2rem; width: 100%; text-align: center; }
         }
+
+        .brand-wrap { display:flex; flex-direction:column; gap:2px; min-width:0; }
+        .site-subtitle { color:var(--color-text-sec); font: 600 clamp(.48rem, .8vw, .7rem) var(--font-sec); letter-spacing:.25px; }
+        .social-menu { display:flex; gap:12px; }
+        .menu .social-link { display:grid; place-items:center; width:40px; height:40px; border:1px solid var(--color-gold-dark); border-radius:5px; background:linear-gradient(180deg,var(--bg-wood),var(--bg-wood-dark)); color:var(--color-highlight); font-size:1.5rem; box-shadow:inset 0 0 8px #0008, 0 3px 5px #0008; }
+        .menu .social-link:hover { color:#fff0b5; border-color:var(--color-highlight); transform:translateY(-1px); }
+        main { min-height:0; }
+        .game-area { flex:1; min-width:0; display:flex; flex-direction:column; gap:10px; overflow:auto; padding:0 3px 8px; }
+        .modifiers-panel { flex:0 0 auto; border:2px solid #5a3924; border-radius:7px; padding:9px 12px; background:linear-gradient(135deg,#4b3020,#241712); box-shadow:inset 0 0 18px #000b,0 3px 8px #0008; }
+        .modifiers-panel h2 { font:700 clamp(.8rem,1.4vw,1.05rem) var(--font-title); color:var(--color-highlight); letter-spacing:2px; text-align:center; margin-bottom:3px; }
+        .modifier-hint,.modifier-status { color:var(--color-text-sec); text-align:center; font: .68rem var(--font-ui); margin:3px 0 7px; }
+        .modifier-list { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:8px; }
+        .modifier-card { min-width:0; padding:6px; display:flex; flex-direction:column; gap:4px; align-items:stretch; border:2px solid #6a472a; border-radius:5px; color:var(--color-text); background:linear-gradient(145deg,#68452d,#2b1a12); box-shadow:inset 0 0 9px #000a,0 2px 4px #0008; cursor:pointer; text-align:center; font-family:var(--font-sec); }
+        .modifier-card:hover,.modifier-card.selected { border-color:var(--color-highlight); box-shadow:inset 0 0 12px #c9a22733,0 0 10px #c9a22755; }
+        .modifier-card img,.clear-art { width:100%; height:clamp(35px,5vw,65px); object-fit:cover; border:1px solid #9d7843; border-radius:3px; filter:sepia(.2) saturate(.8); }
+        .clear-art { display:grid; place-items:center; font-size:clamp(1.4rem,3vw,2.3rem); color:#c9a227; background:linear-gradient(135deg,#746044,#21170f); }
+        .modifier-title { font:700 clamp(.58rem,1vw,.8rem) var(--font-title); color:var(--color-highlight); }
+        .modifier-desc { font:clamp(.55rem,.8vw,.68rem) var(--font-sec); line-height:1.05; color:var(--color-text-sec); }
+        .board { flex:1; min-height:420px; gap:1vh; }
+        .half-board { gap:8px; padding:8px; }
+        .row { min-height:88px; height:auto; flex:1; gap:10px; }
+        .row-content { justify-content:flex-start; padding:7px 10px; }
+        .row-info { gap:8px; flex:0 0 auto; opacity:.82; }
+        .row-info span { font-size:clamp(.55rem,1vw,.85rem); letter-spacing:1px; }
+        .row-info i { font-size:clamp(.9rem,1.6vw,1.3rem); }
+        .tag-entry { display:flex; flex:1; min-width:0; align-items:center; gap:5px; position:relative; z-index:3; }
+        .tag-input { width:68px; min-width:42px; padding:7px 4px; color:#f5e6c8; background:#211510dd; border:1px solid #92713c; border-radius:3px; font:600 .75rem var(--font-ui); outline:none; user-select:text; }
+        .tag-input::-webkit-inner-spin-button,.tag-input::-webkit-outer-spin-button,
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; display:none; }
+        .tag-input[type=number], input[type=number] { -moz-appearance:textfield; appearance:textfield; }
+        .add-tag { padding:4px 9px; color:#f5e6c8; background:linear-gradient(#6b482b,#2a1a12); border:1px solid #9b793c; border-radius:3px; cursor:pointer; }
+        .tags { display:flex; align-items:center; flex-wrap:wrap; gap:5px; min-width:0; max-height:70px; overflow-y:auto; }
+        .tag { position:relative; display:inline-flex; align-items:center; justify-content:center; min-width:27px; padding:5px 7px 3px; margin-top:8px; border:1px solid #c9a227; border-radius:4px; color:#ffe9a0; background:linear-gradient(#4a3923,#20170f); font:700 .8rem var(--font-title); box-shadow:0 2px 4px #0009; }
+        .tag-number { cursor:pointer; user-select:none; }
+        .tag.special { border-color:#a9d6ed; color:#d9f3ff; background:linear-gradient(#35566b,#172b39); }
+        .tag-remove { position:absolute; right:-5px; top:-9px; width:14px; height:14px; padding:0; line-height:11px; border:1px solid #d5b36b; border-radius:50%; background:#4a1712; color:#fff1cc; font:bold 12px Arial; cursor:pointer; }
+        .row-score { color:var(--color-highlight); font:700 clamp(1rem,2vw,1.5rem) var(--font-title); }
+        .row-effect-remove { display:none; position:absolute; z-index:5; top:2px; right:4px; width:20px; height:20px; border:1px solid #d5b36b; border-radius:50%; background:#411b14; color:#fff0c2; font:bold 16px Arial; cursor:pointer; line-height:16px; }
+        .row-effect-remove.visible { display:block; }
+        .row-content.selectable { cursor:pointer; border-color:#f0d675; box-shadow:inset 0 0 15px #c9a22755,0 0 10px #e0c36a99; animation:row-glow 1s ease-in-out infinite alternate; }
+        .double-active .row-content { border-color:#e0c36a; box-shadow:inset 0 0 15px #c9a22755,0 0 7px #e0c36a77; }
+        .frost-active .row-content { background:linear-gradient(90deg,#527c91dd,#b7e4f2aa,#34566cdd); border-color:#b7e4f2; }
+        .frost-active .row-icon-bg { color:#e4f8ff22; }
+        .fog-active .row-content { background:linear-gradient(90deg,#7e8580dd,#b8b9aecc,#656d6cdd); border-color:#c1c7c1; }
+        .fog-active .row-content:after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(100deg,transparent,#e4e7e355,transparent); animation:fog-drift 5s linear infinite; }
+        .rain-active .row-content { background:linear-gradient(135deg,#253e50,#4a6879,#243947); border-color:#7bb3ca; }
+        .rain-active .row-content:after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.35; background:repeating-linear-gradient(110deg,transparent 0 14px,#b6dbe9 15px 16px,transparent 17px 30px); }
+        @keyframes row-glow { from { filter:brightness(1); } to { filter:brightness(1.35); } }
+        @keyframes fog-drift { from { transform:translateX(-30%); } to { transform:translateX(30%); } }
+        @media (max-width:900px) {
+            body,html { overflow:auto; }
+            .app-container { min-height:100vh; height:auto; }
+            header { padding:6px 12px; height:auto; min-height:58px; }
+            .brand-wrap { flex:1; }
+            .site-subtitle { font-size:.55rem; }
+            .menu .social-link { width:32px; height:32px; font-size:1.2rem; }
+            main { flex-direction:column-reverse; overflow:visible; padding:8px; gap:10px; }
+            aside { order:2; flex-direction:row; flex-wrap:wrap; width:100%; padding:8px; gap:8px; }
+            .score-display { flex-direction:row; gap:7px; }
+            .score-label { font-size:.75rem; letter-spacing:0; }
+            .shield-total-wrapper { width:42px; height:50px; }
+            .total-score { font-size:1.2rem; }
+            .reset-btn { width:auto; padding:8px 10px; margin:0; }
+            .game-area { overflow:visible; }
+            .modifier-list { grid-template-columns:repeat(5,minmax(0,1fr)); gap:4px; }
+            .modifier-card { padding:4px 2px; }
+            .modifier-desc { font-size:.5rem; }
+            .modifier-title { font-size:.53rem; letter-spacing:0; }
+            .board { min-height:450px; }
+            .row { min-height:125px; gap:5px; }
+            .shield-input-wrapper { width:42px; height:52px; }
+            .row-content { padding:5px; flex-wrap:wrap; align-content:center; gap:4px; }
+            .row-info { width:100%; justify-content:center; }
+            .row-info span { font-size:.57rem; }
+            .row-info i { font-size:.85rem; }
+            .tag-entry { justify-content:center; flex-wrap:wrap; }
+            .tag-input { width:52px; padding:5px 2px; font-size:.65rem; }
+            .tags { max-height:45px; justify-content:center; }
+            .tag { font-size:.7rem; padding:4px 5px 2px; }
+        }
+
+
+        .tag { padding-bottom: 10px; }
+        .tag-immunity { position:absolute; left:50%; bottom:-7px; transform:translateX(-50%); width:17px; height:13px; padding:0; line-height:9px; border:1px solid #c9a227; border-radius:3px; color:#ffe9a0; background:#382516; font:bold 13px Arial; cursor:pointer; z-index:2; }
+        .tag-immunity:hover { filter:brightness(1.35); }
+        .tag.immune-blue { color:#e3f5ff; border-color:#75c8ff; background:linear-gradient(#1766a0,#123d70); box-shadow:0 0 7px #42b8ff88; }
+        .tag.immune-blue .tag-immunity { color:#fff; border-color:#8ad8ff; background:#126cb0; }
+        .tag.immune-blue .tag-number { color:#e3f5ff; }
+
     </style>
 </head>
 <body>
 
     <div class="app-container">
         <header>
-            <div class="logo">GWENT SCORE</div>
-            <nav class="menu">
-                <a href="#">REGRAS</a>
-                <i class="fa-solid fa-khanda separator"></i>
-                <a href="#">ATUALIZAÇÕES</a>
-                <i class="fa-solid fa-khanda separator"></i>
-                <a href="#">SUPORTE</a>
+            <div class="brand-wrap">
+                <div class="logo">GWENT SCORE</div>
+                <div class="site-subtitle">Site não oficial, todos os direitos reservados para CD Projekt Red.</div>
+            </div>
+            <nav class="menu social-menu" aria-label="Redes sociais">
+                <a class="social-link" href="https://github.com/martezi" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a class="social-link" href="https://www.linkedin.com/in/igor-souza-zizza/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
             </nav>
         </header>
 
@@ -401,196 +491,251 @@
             <aside>
                 <div class="score-display">
                     <span class="score-label">JOGADOR 1</span>
-                    <div class="shield-total-wrapper" id="adv-shield">
-                        <div class="shield-total-inner">
-                            <span class="total-score" id="adv-total">0</span>
-                        </div>
-                    </div>
+                    <div class="shield-total-wrapper" id="adv-shield"><div class="shield-total-inner"><span class="total-score" id="adv-total">0</span></div></div>
                 </div>
-
                 <div class="score-display">
                     <span class="score-label">JOGADOR 2</span>
-                    <div class="shield-total-wrapper" id="player-shield">
-                        <div class="shield-total-inner">
-                            <span class="total-score" id="player-total">0</span>
-                        </div>
-                    </div>
+                    <div class="shield-total-wrapper" id="player-shield"><div class="shield-total-inner"><span class="total-score" id="player-total">0</span></div></div>
                 </div>
-
                 <button class="reset-btn" onclick="resetGame()">ZERAR PARTIDA</button>
             </aside>
 
-            <div class="board">
+            <section class="game-area">
+                <section class="modifiers-panel">
+                    <h2>MODIFICADORES</h2>
+                    <p class="modifier-hint">Escolha um modificador. O multiplicador permite selecionar uma linha; os efeitos climáticos são aplicados às duas linhas do mesmo tipo.</p>
+                    <div class="modifier-list">
+                        <button class="modifier-card" type="button" data-modifier="double" aria-pressed="false">
+                            <img src="bardo.webp" alt="Runas mágicas brilhando">
+                            <span class="modifier-title">Poder dobrado</span><span class="modifier-desc">Multiplica os pontos por 2</span>
+                        </button>
+                        <button class="modifier-card" type="button" data-modifier="frost" aria-pressed="false">
+                            <img src="https://images.unsplash.com/photo-1517299321609-52687d1bc55a?auto=format&fit=crop&w=500&q=80" alt="Gelo e neve">
+                            <span class="modifier-title">Geada</span><span class="modifier-desc">Cartas comuns valem 1 na linha corpo a corpo</span>
+                        </button>
+                        <button class="modifier-card" type="button" data-modifier="fog" aria-pressed="false">
+                            <img src="neblina.png" alt="Floresta coberta por neblina">
+                            <span class="modifier-title">Neblina</span><span class="modifier-desc">Cartas comuns valem 1 à distância</span>
+                        </button>
+                        <button class="modifier-card" type="button" data-modifier="rain" aria-pressed="false">
+                            <img src="chuva.png" alt="Chuva em uma janela">
+                            <span class="modifier-title">Chuva torrencial</span><span class="modifier-desc">Cartas comuns valem 1 no cerco</span>
+                        </button>
+                        <button class="modifier-card clear-card" type="button" data-modifier="clear" aria-pressed="false">
+                            <img src="sol.webp" alt="Sol">
+                            <span class="modifier-title">Tempo limpo</span><span class="modifier-desc">Remove os efeitos climáticos</span>
+                        </button>
+                    </div>
+                    <p id="modifier-status" class="modifier-status" aria-live="polite">Nenhum modificador selecionado.</p>
+                </section>
 
-                <div class="half-board">
-                    <div class="row">
-                        <div class="shield-input-wrapper">
-                            <div class="shield-input-inner">
-                                <input type="number" class="score-input adv-input" value="0" min="0" oninput="updateScores()">
-                            </div>
+                <div class="board">
+                    <div class="half-board">
+                        <div class="row" data-player="adv" data-lane="siege">
+                            <div class="shield-input-wrapper"><div class="shield-input-inner"><span class="score-input row-score">0</span></div></div>
+                            <div class="row-content"><i class="fa-solid fa-chess-rook row-icon-bg"></i><button class="row-effect-remove" aria-label="Remover efeito" title="Remover efeito">×</button><div class="row-info"><i class="fa-solid fa-chess-rook"></i><span>LINHA DE CERCO</span></div><div class="tag-entry"><input class="tag-input" type="number" min="0" step="1" inputmode="numeric" placeholder="Pontos" aria-label="Pontos para linha de cerco"><button class="add-tag" type="button" aria-label="Adicionar pontos">+</button><div class="tags" aria-live="polite"></div></div></div>
                         </div>
-                        <div class="row-content">
-                            <i class="fa-solid fa-chess-rook row-icon-bg"></i>
-                            <div class="row-info">
-                                <i class="fa-solid fa-chess-rook"></i>
-                                <span>LINHA DE CERCO</span>
-                            </div>
+                        <div class="row" data-player="adv" data-lane="ranged">
+                            <div class="shield-input-wrapper"><div class="shield-input-inner"><span class="score-input row-score">0</span></div></div>
+                            <div class="row-content"><i class="fa-solid fa-bullseye row-icon-bg"></i><button class="row-effect-remove" aria-label="Remover efeito" title="Remover efeito">×</button><div class="row-info"><i class="fa-solid fa-bullseye"></i><span>LONGA DISTÂNCIA</span></div><div class="tag-entry"><input class="tag-input" type="number" min="0" step="1" inputmode="numeric" placeholder="Pontos" aria-label="Pontos para longa distância"><button class="add-tag" type="button" aria-label="Adicionar pontos">+</button><div class="tags" aria-live="polite"></div></div></div>
+                        </div>
+                        <div class="row" data-player="adv" data-lane="melee">
+                            <div class="shield-input-wrapper"><div class="shield-input-inner"><span class="score-input row-score">0</span></div></div>
+                            <div class="row-content"><i class="fa-solid fa-khanda row-icon-bg"></i><button class="row-effect-remove" aria-label="Remover efeito" title="Remover efeito">×</button><div class="row-info"><i class="fa-solid fa-khanda"></i><span>CORPO A CORPO</span></div><div class="tag-entry"><input class="tag-input" type="number" min="0" step="1" inputmode="numeric" placeholder="Pontos" aria-label="Pontos para corpo a corpo"><button class="add-tag" type="button" aria-label="Adicionar pontos">+</button><div class="tags" aria-live="polite"></div></div></div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="shield-input-wrapper">
-                            <div class="shield-input-inner">
-                                <input type="number" class="score-input adv-input" value="0" min="0" oninput="updateScores()">
-                            </div>
+                    <div class="board-divider"></div>
+                    <div class="half-board">
+                        <div class="row" data-player="player" data-lane="melee">
+                            <div class="shield-input-wrapper"><div class="shield-input-inner"><span class="score-input row-score">0</span></div></div>
+                            <div class="row-content"><i class="fa-solid fa-khanda row-icon-bg"></i><button class="row-effect-remove" aria-label="Remover efeito" title="Remover efeito">×</button><div class="row-info"><i class="fa-solid fa-khanda"></i><span>CORPO A CORPO</span></div><div class="tag-entry"><input class="tag-input" type="number" min="0" step="1" inputmode="numeric" placeholder="Pontos" aria-label="Pontos para corpo a corpo"><button class="add-tag" type="button" aria-label="Adicionar pontos">+</button><div class="tags" aria-live="polite"></div></div></div>
                         </div>
-                        <div class="row-content">
-                            <i class="fa-solid fa-bullseye row-icon-bg"></i>
-                            <div class="row-info">
-                                <i class="fa-solid fa-bullseye"></i>
-                                <span>LONGA DISTÂNCIA</span>
-                            </div>
+                        <div class="row" data-player="player" data-lane="ranged">
+                            <div class="shield-input-wrapper"><div class="shield-input-inner"><span class="score-input row-score">0</span></div></div>
+                            <div class="row-content"><i class="fa-solid fa-bullseye row-icon-bg"></i><button class="row-effect-remove" aria-label="Remover efeito" title="Remover efeito">×</button><div class="row-info"><i class="fa-solid fa-bullseye"></i><span>LONGA DISTÂNCIA</span></div><div class="tag-entry"><input class="tag-input" type="number" min="0" step="1" inputmode="numeric" placeholder="Pontos" aria-label="Pontos para longa distância"><button class="add-tag" type="button" aria-label="Adicionar pontos">+</button><div class="tags" aria-live="polite"></div></div></div>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="shield-input-wrapper">
-                            <div class="shield-input-inner">
-                                <input type="number" class="score-input adv-input" value="0" min="0" oninput="updateScores()">
-                            </div>
-                        </div>
-                        <div class="row-content">
-                            <i class="fa-solid fa-khanda row-icon-bg"></i>
-                            <div class="row-info">
-                                <i class="fa-solid fa-khanda"></i>
-                                <span>CORPO A CORPO</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="board-divider"></div>
-
-                <div class="half-board">
-                    <div class="row">
-                        <div class="shield-input-wrapper">
-                            <div class="shield-input-inner">
-                                <input type="number" class="score-input player-input" value="0" min="0" oninput="updateScores()">
-                            </div>
-                        </div>
-                        <div class="row-content">
-                            <i class="fa-solid fa-khanda row-icon-bg"></i>
-                            <div class="row-info">
-                                <i class="fa-solid fa-khanda"></i>
-                                <span>CORPO A CORPO</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="shield-input-wrapper">
-                            <div class="shield-input-inner">
-                                <input type="number" class="score-input player-input" value="0" min="0" oninput="updateScores()">
-                            </div>
-                        </div>
-                        <div class="row-content">
-                            <i class="fa-solid fa-bullseye row-icon-bg"></i>
-                            <div class="row-info">
-                                <i class="fa-solid fa-bullseye"></i>
-                                <span>LONGA DISTÂNCIA</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="shield-input-wrapper">
-                            <div class="shield-input-inner">
-                                <input type="number" class="score-input player-input" value="0" min="0" oninput="updateScores()">
-                            </div>
-                        </div>
-                        <div class="row-content">
-                            <i class="fa-solid fa-chess-rook row-icon-bg"></i>
-                            <div class="row-info">
-                                <i class="fa-solid fa-chess-rook"></i>
-                                <span>LINHA DE CERCO</span>
-                            </div>
+                        <div class="row" data-player="player" data-lane="siege">
+                            <div class="shield-input-wrapper"><div class="shield-input-inner"><span class="score-input row-score">0</span></div></div>
+                            <div class="row-content"><i class="fa-solid fa-chess-rook row-icon-bg"></i><button class="row-effect-remove" aria-label="Remover efeito" title="Remover efeito">×</button><div class="row-info"><i class="fa-solid fa-chess-rook"></i><span>LINHA DE CERCO</span></div><div class="tag-entry"><input class="tag-input" type="number" min="0" step="1" inputmode="numeric" placeholder="Pontos" aria-label="Pontos para linha de cerco"><button class="add-tag" type="button" aria-label="Adicionar pontos">+</button><div class="tags" aria-live="polite"></div></div></div>
                         </div>
                     </div>
                 </div>
-
-            </div>
+            </section>
         </main>
     </div>
 
     <script>
-        let lastAdvTotal = 0;
-        let lastPlayerTotal = 0;
+        const activeEffects = { double: new Set(), frost: false, fog: false, rain: false };
+        let selectedModifier = null;
 
         function updateScores() {
-            const advInputs = document.querySelectorAll('.adv-input');
-            const playerInputs = document.querySelectorAll('.player-input');
-
-            let advSum = 0;
-            advInputs.forEach(input => {
-                let val = parseInt(input.value, 10);
-                if (isNaN(val) || val < 0) val = 0;
-                advSum += val;
+            const totals = { adv: 0, player: 0 };
+            document.querySelectorAll('.row').forEach(row => {
+                let sum = 0;
+                row.querySelectorAll('.tag').forEach(tag => {
+                    const value = Number(tag.dataset.value) || 0;
+                    const isSpecial = tag.dataset.special === 'true';
+                    const isBlueImmune = tag.dataset.immune === 'true';
+                    let points = value;
+                    if (!isBlueImmune && !isSpecial && (
+                        (activeEffects.frost && row.dataset.lane === 'melee') ||
+                        (activeEffects.fog && row.dataset.lane === 'ranged') ||
+                        (activeEffects.rain && row.dataset.lane === 'siege')
+                    )) points = 1;
+                    if (!isBlueImmune && activeEffects.double.has(row)) points *= 2;
+                    sum += points;
+                });
+                row.querySelector('.row-score').textContent = sum;
+                totals[row.dataset.player] += sum;
             });
+            setTotal('adv-total', 'adv-shield', totals.adv);
+            setTotal('player-total', 'player-shield', totals.player);
+        }
 
-            let playerSum = 0;
-            playerInputs.forEach(input => {
-                let val = parseInt(input.value, 10);
-                if (isNaN(val) || val < 0) val = 0;
-                playerSum += val;
-            });
-
-            const advTotalElement = document.getElementById('adv-total');
-            const playerTotalElement = document.getElementById('player-total');
-            const advShield = document.getElementById('adv-shield');
-            const playerShield = document.getElementById('player-shield');
-
-            if (advSum !== lastAdvTotal) {
-                advTotalElement.innerText = advSum;
-                triggerAnimation(advShield);
-                lastAdvTotal = advSum;
-            }
-
-            if (playerSum !== lastPlayerTotal) {
-                playerTotalElement.innerText = playerSum;
-                triggerAnimation(playerShield);
-                lastPlayerTotal = playerSum;
+        function setTotal(id, shieldId, value) {
+            const el = document.getElementById(id);
+            if (el.textContent !== String(value)) {
+                el.textContent = value;
+                const shield = document.getElementById(shieldId);
+                shield.classList.remove('pulse-anim');
+                void shield.offsetWidth;
+                shield.classList.add('pulse-anim');
             }
         }
 
-        function triggerAnimation(element) {
-            element.classList.remove('pulse-anim');
-            void element.offsetWidth;
-            element.classList.add('pulse-anim');
+        function addTag(row, rawValue) {
+            if (rawValue === '' || !Number.isFinite(Number(rawValue)) || Number(rawValue) < 0) return;
+            const value = Math.floor(Number(rawValue));
+            const tags = row.querySelector('.tags');
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.dataset.value = String(value);
+            tag.dataset.special = 'false';
+            const number = document.createElement('span');
+            number.className = 'tag-number';
+            number.textContent = value;
+            number.title = 'Clique no número para alternar entre comum e especial';
+            number.addEventListener('click', () => {
+                tag.dataset.special = tag.dataset.special === 'true' ? 'false' : 'true';
+                tag.classList.toggle('special', tag.dataset.special === 'true');
+                updateScores();
+            });
+            tag.dataset.immune = 'false';
+
+            const immunity = document.createElement('button');
+            immunity.className = 'tag-immunity';
+            immunity.type = 'button';
+            immunity.textContent = '⌄';
+            immunity.title = 'Alternar imunidade aos modificadores';
+            immunity.setAttribute('aria-label', 'Alternar tag azul imune aos efeitos');
+            immunity.setAttribute('aria-pressed', 'false');
+            immunity.addEventListener('click', () => {
+                tag.dataset.immune = tag.dataset.immune === 'true' ? 'false' : 'true';
+                tag.classList.toggle('immune-blue', tag.dataset.immune === 'true');
+                immunity.setAttribute('aria-pressed', tag.dataset.immune);
+                updateScores();
+            });
+
+            const remove = document.createElement('button');
+            remove.className = 'tag-remove';
+            remove.type = 'button';
+            remove.textContent = '×';
+            remove.setAttribute('aria-label', 'Excluir pontos');
+            remove.addEventListener('click', () => { tag.remove(); updateScores(); });
+            tag.append(number, immunity, remove);
+            tags.appendChild(tag);
+            updateScores();
+        }
+
+        document.querySelectorAll('.row').forEach(row => {
+            const input = row.querySelector('.tag-input');
+            const add = () => {
+                addTag(row, input.value);
+                input.value = '';
+                input.focus();
+            };
+            input.addEventListener('keydown', event => {
+                if (event.key === 'Enter') { event.preventDefault(); add(); }
+            });
+            row.querySelector('.add-tag').addEventListener('click', add);
+            row.querySelector('.row-effect-remove').addEventListener('click', () => {
+                activeEffects.double.delete(row);
+                if (row.dataset.lane === 'melee') activeEffects.frost = false;
+                if (row.dataset.lane === 'ranged') activeEffects.fog = false;
+                if (row.dataset.lane === 'siege') activeEffects.rain = false;
+                refreshEffects();
+                updateScores();
+            });
+            row.querySelector('.row-content').addEventListener('click', event => {
+                if (!selectedModifier || selectedModifier !== 'double') return;
+                if (event.target.closest('button, input, .tag, .tag-entry')) return;
+                activeEffects.double.has(row) ? activeEffects.double.delete(row) : activeEffects.double.add(row);
+                selectedModifier = null;
+                refreshEffects();
+                updateScores();
+            });
+        });
+
+        document.querySelectorAll('.modifier-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const type = card.dataset.modifier;
+                if (type === 'double') {
+                    selectedModifier = selectedModifier === 'double' ? null : 'double';
+                    document.getElementById('modifier-status').textContent = selectedModifier
+                        ? 'Poder dobrado selecionado: clique em uma das seis linhas do tabuleiro.'
+                        : 'Seleção de linha cancelada.';
+                } else if (type === 'frost' || type === 'fog' || type === 'rain') {
+                    activeEffects[type] = !activeEffects[type];
+                    selectedModifier = null;
+                    document.getElementById('modifier-status').textContent = activeEffects[type]
+                        ? 'Efeito ativado nas duas linhas correspondentes.'
+                        : 'Efeito climático removido.';
+                } else if (type === 'clear') {
+                    activeEffects.frost = activeEffects.fog = activeEffects.rain = false;
+                    selectedModifier = null;
+                    document.getElementById('modifier-status').textContent = 'Efeitos climáticos removidos. Poder dobrado foi mantido.';
+                }
+                refreshEffects();
+                updateScores();
+            });
+        });
+
+        function refreshEffects() {
+            document.querySelectorAll('.modifier-card').forEach(card => {
+                card.setAttribute('aria-pressed', String(
+                    card.dataset.modifier === selectedModifier ||
+                    (card.dataset.modifier === 'frost' && activeEffects.frost) ||
+                    (card.dataset.modifier === 'fog' && activeEffects.fog) ||
+                    (card.dataset.modifier === 'rain' && activeEffects.rain)
+                ));
+                card.classList.toggle('selected', card.getAttribute('aria-pressed') === 'true');
+            });
+            document.querySelectorAll('.row').forEach(row => {
+                row.classList.toggle('double-active', activeEffects.double.has(row));
+                row.classList.toggle('frost-active', activeEffects.frost && row.dataset.lane === 'melee');
+                row.classList.toggle('fog-active', activeEffects.fog && row.dataset.lane === 'ranged');
+                row.classList.toggle('rain-active', activeEffects.rain && row.dataset.lane === 'siege');
+                row.querySelector('.row-effect-remove').classList.toggle('visible',
+                    activeEffects.double.has(row) ||
+                    (activeEffects.frost && row.dataset.lane === 'melee') ||
+                    (activeEffects.fog && row.dataset.lane === 'ranged') ||
+                    (activeEffects.rain && row.dataset.lane === 'siege'));
+            });
+            document.querySelectorAll('.row-content').forEach(el => el.classList.toggle('selectable', selectedModifier === 'double'));
         }
 
         function resetGame() {
-            const confirmReset = window.confirm("Deseja realmente zerar todos os pontos da partida atual?");
-
-            if (confirmReset) {
-                const allInputs = document.querySelectorAll('.score-input');
-                allInputs.forEach(input => {
-                    input.value = "0";
-                });
-                updateScores();
-            }
+            if (!window.confirm('Deseja realmente zerar todos os pontos e efeitos da partida?')) return;
+            document.querySelectorAll('.tags').forEach(el => el.replaceChildren());
+            activeEffects.double.clear();
+            activeEffects.frost = activeEffects.fog = activeEffects.rain = false;
+            selectedModifier = null;
+            document.getElementById('modifier-status').textContent = 'Partida zerada.';
+            refreshEffects();
+            updateScores();
         }
 
-        document.querySelectorAll('.score-input').forEach(input => {
-            input.addEventListener('focus', function() {
-                this.select();
-            });
-            input.addEventListener('blur', function() {
-                if (this.value === "") {
-                    this.value = "0";
-                    updateScores();
-                }
-            });
-        });
+        updateScores();
     </script>
 </body>
 </html>
